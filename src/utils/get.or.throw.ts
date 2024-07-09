@@ -1,4 +1,4 @@
-import {AppError} from "../error/error";
+import {AppError} from "../error/errors";
 
 function getOrThrow<T>(property: T | undefined, appError: AppError): T {
     if (property === undefined) {

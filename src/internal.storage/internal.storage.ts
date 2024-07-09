@@ -3,7 +3,7 @@ import {NextFunction, Request, Response} from "express";
 import {IdUtils, RequestId} from "../utils/id.utils";
 import {StorageContext} from "./storage.context";
 import {getOrThrow} from "../utils/get.or.throw";
-import {InternalError} from "../error/error";
+import {InternalError} from "../error/errors";
 
 class InternalStorage {
     private static localStorage = new AsyncLocalStorage<StorageContext>();

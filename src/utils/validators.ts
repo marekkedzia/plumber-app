@@ -1,6 +1,6 @@
 import {ZodSchema} from "zod"
 import {NextFunction, Request, Response} from "express"
-import {InvalidBodyError, InvalidQueryError} from "../error/error";
+import {InvalidBodyError, InvalidQueryError} from "../error/errors";
 
 const validateBody = (schema: ZodSchema) =>
     (req: Request, _: Response, next: NextFunction) => {

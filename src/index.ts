@@ -1,4 +1,4 @@
-export * from "./error/error";
+export * from "./error/errors";
 export * from "./error/error.handler";
 export * from "./internal.storage/internal.storage";
 export * from "./utils/get.or.throw";
@@ -8,4 +8,3 @@ export * from "./utils/logger";
 export * from "./utils/unless";
 export * from "./utils/validators";
 export * from "./app";
-export * from "./health.router";

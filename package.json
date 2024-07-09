@@ -1,6 +1,6 @@
 {
   "name": "@marekkedzia/plumber-app",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "author": "Marek Kedzia",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "dist/**/*"
   ],
   "dependencies": {
-    "@marekkedzia/plumber-router": "marekkedzia/plumber-router",
+    "@marekkedzia/plumber-router": "^1.1.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "ts-opaque": "^3.0.1",

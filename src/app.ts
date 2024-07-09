@@ -1,4 +1,4 @@
-import {Plumber, RouterPath} from '@marekkedzia/plumber-router/src';
+import {Plumber, RouterPath} from '@marekkedzia/plumber-router';
 import express, {Express, Router} from "express";
 import "express-async-errors";
 import cors from "cors";

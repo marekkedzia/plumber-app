@@ -1,4 +1,4 @@
-import {Plumber, RouterPath, Filter} from '@marekkedzia/plumber-router/src';
+import {Plumber, RouterPath, Filter} from '@marekkedzia/plumber-router';
 import {config} from "./config";
 
 class HealthController {

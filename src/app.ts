@@ -1,5 +1,5 @@
 import {Plumber, RouterPath} from '@marekkedzia/plumber-router/src';
-import express, {Router} from "express";
+import express, {Express, Router} from "express";
 import "express-async-errors";
 import cors from "cors";
 import {healthRouter} from "./health.router";
@@ -18,7 +18,7 @@ type AppConfig = {
     }[];
 }
 
-function getPlumberApp(config?: AppConfig) {
+function getPlumberApp(config?: AppConfig): Express {
     const routers: Router[] = config?.routers?.map(c => c.router) || [];
     const auth: express.RequestHandler[] = config?.auth?.map(a => unless(a.unless, a.middleware)) || [];
 

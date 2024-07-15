@@ -33,3 +33,9 @@ export class InvalidQueryError implements AppError {
         this.data = `${ErrorData.INVALID_QUERY}: ${message}`;
     }
 }
+
+export class ForbiddenError implements AppError {
+    status = HttpStatus.FORBIDDEN;
+    code = ErrorCode.FORBIDDEN;
+    data = ErrorData.FORBIDDEN;
+}

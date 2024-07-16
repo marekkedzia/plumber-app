@@ -2,7 +2,6 @@ import {NextFunction, Request, Response} from "express";
 import {AppError, InternalError} from "./errors";
 import {InternalStorage} from "../internal.storage/internal.storage";
 import {HttpStatus} from "../utils/http.status";
-import {Logger} from "../utils/logger";
 
 function errorHandler(
     error: Error | AppError,

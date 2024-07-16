@@ -9,9 +9,7 @@ class HealthController {
         this.plumber.register<string>("get", [this.getHealthFilter]);
     }
 
-    private getHealthFilter = Filter(
-        () => config.healthCheckResponse
-    );
+    private getHealthFilter = Filter(() => config.healthCheckResponse);
 }
 
 export const healthRouter = new HealthController().plumber.router;

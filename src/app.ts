@@ -28,10 +28,8 @@ function getPlumberApp(config?: AppConfig): Express {
         .use(express.json())
         .use(InternalStorage.startStorage)
         .use(healthRouter);
-
     authMiddleware.forEach(middleware => app.use(middleware));
     routers.forEach(router => app.use(router));
-
     app.use(errorHandler);
 
     return app;

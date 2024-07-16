@@ -8,17 +8,6 @@ class Logger {
             const transports = [
                 new winston.transports.Console({
                     format: winston.format.combine(
-                        winston.format.colorize({
-                            all: true,
-                            colors: {
-                                error: 'red',
-                                warn: 'yellow',
-                                info: 'green',
-                                verbose: 'grey',
-                                debug: 'grey',
-                                silly: 'grey'
-                            }
-                        }),
                         winston.format.label({label: "Backend"}),
                         winston.format.timestamp({format: "YYYY-MM-DD HH:mm:ss"}),
                         winston.format.printf(({level, message, label, timestamp}) =>

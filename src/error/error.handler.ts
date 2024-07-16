@@ -2,6 +2,7 @@ import {NextFunction, Request, Response} from "express";
 import {AppError, InternalError} from "./errors";
 import {InternalStorage} from "../internal.storage/internal.storage";
 import {HttpStatus} from "../utils/http.status";
+import {Logger} from "../utils/logger";
 
 function errorHandler(
     error: Error | AppError,
@@ -17,6 +18,8 @@ function errorHandler(
     } : new InternalError();
 
     const id = InternalStorage.getRequestId();
+    Logger.error(`Error in request ${id}`, error);
+
     response.status(status).json({...res, id});
 }
 

@@ -23,7 +23,8 @@ function getPlumberApp(config?: AppConfig): Express {
     const routers: Router[] = config?.routers?.map(c => c.router) || [];
     const authMiddleware: express.RequestHandler[] = config?.auth?.map(a => unless(a.unless, a.middleware)) || [];
 
-    app.disable("x-powered-by")
+    app
+        .disable("x-powered-by")
         .use(cors(config?.cors ? {origin: config.cors} : {}))
         .use(express.json())
         .use(InternalStorage.startStorage)

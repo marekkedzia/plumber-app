@@ -39,3 +39,9 @@ export class ForbiddenError implements AppError {
     code = ErrorCode.FORBIDDEN;
     data = ErrorData.FORBIDDEN;
 }
+
+export class IdPrefixError implements AppError {
+    status = HttpStatus.INTERNAL_SERVER_ERROR;
+    code = ErrorCode.ID_PREFIX;
+    data = ErrorData.ID_PREFIX;
+}

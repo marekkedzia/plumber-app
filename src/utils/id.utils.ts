@@ -8,7 +8,7 @@ enum IdPrefix {
 }
 
 class IdUtils {
-    private static provideId<T>(prefix: IdPrefix, suffixLength = 6): T {
+    protected static provideId<T>(prefix: IdPrefix, suffixLength = 6): T {
         return `${prefix}_${Date.now()}_${randomUUID().slice(0, suffixLength)}` as T;
     }
 

@@ -3,8 +3,9 @@ import winston from 'winston';
 class Logger {
     private static instance: winston.Logger;
 
-    private static getInstance(level: string = 'info'): winston.Logger {
+    private static getInstance(): winston.Logger {
         if (!Logger.instance) {
+            const level = process.env.LOG_LEVEL || 'info';
             const transports = [
                 new winston.transports.Console({
                     format: winston.format.combine(
@@ -18,8 +19,8 @@ class Logger {
             ];
 
             Logger.instance = winston.createLogger({
-                level,
-                transports,
+                level: level,
+                transports: transports,
                 exitOnError: false,
             });
         }
@@ -27,11 +28,12 @@ class Logger {
         return Logger.instance;
     }
 
-    static error = (msg: string, details?: any, level?: string) => Logger.getInstance(level).error(msg, details)
-    static info = (msg: string, details?: any, level?: string) => Logger.getInstance(level).info(msg, details)
-    static warn = (msg: string, details?: any, level?: string) => Logger.getInstance(level).warn(msg, details)
-    static debug = (msg: string, details?: any, level?: string) => Logger.getInstance(level).debug(msg, details)
-    static silly = (msg: string, details?: any, level?: string) => Logger.getInstance(level).silly(msg, details)
+
+    static error = (msg: string, details?: any) => Logger.getInstance().error(msg, details)
+    static info = (msg: string, details?: any) => Logger.getInstance().info(msg, details)
+    static warn = (msg: string, details?: any) => Logger.getInstance().warn(msg, details)
+    static debug = (msg: string, details?: any,) => Logger.getInstance().debug(msg, details)
+    static silly = (msg: string, details?: any) => Logger.getInstance().silly(msg, details)
 }
 
 export {Logger};

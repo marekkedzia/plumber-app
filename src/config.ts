@@ -1,8 +1,8 @@
 const config = {
     healthCheckPath: "/health",
     healthCheckResponse: "Up and running",
-    idPrefixRegex: /^[a-z]*_$/,
-    reqIdPrefix: "req_"
+    idPrefixRegex: /^[a-z]/,
+    reqIdPrefix: "req"
 }
 
 export {config};

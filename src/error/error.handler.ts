@@ -18,7 +18,7 @@ function errorHandler(
     } : new InternalError();
 
     const id = InternalStorage.getRequestId();
-    Logger.error(`Error in request ${id}`, error);
+    Logger.error(`Error in request ${id}: ${JSON.stringify(error)}`);
 
     response.status(status).json({...res, id});
 }

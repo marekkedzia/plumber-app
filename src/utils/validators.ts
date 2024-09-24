@@ -1,11 +1,15 @@
-import {ZodSchema} from "zod"
+import {ZodSchema, ZodObject, ZodRawShape} from "zod"
 import {Request} from "express"
 import {InvalidBodyError, InvalidQueryError} from "../error/errors";
 
-const validateBody = (schema: ZodSchema) =>
+const validateBody = (schema: ZodSchema | ZodObject<ZodRawShape>) =>
     (req: Request) => {
         try {
-            req.body = schema.strict().parse(req.body)
+            if (schema instanceof ZodObject) {
+                req.body = schema.strict().parse(req.body);
+            } else {
+                req.body = schema.parse(req.body);
+            }
         } catch (error: any) {
             throw new InvalidBodyError(JSON.stringify({...error.issues}))
         }

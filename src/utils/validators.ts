@@ -17,7 +17,7 @@ const validateBody = (schema: ZodSchema | ZodObject<ZodRawShape>) =>
 const validateQuery = (schema: ZodSchema) =>
     (req: Request) => {
         try {
-            req.query = schema.strict().parse(req.query)
+            req.query = schema.parse(req.query)
         } catch (error: any) {
             throw new InvalidQueryError(JSON.stringify({...error.issues}))
         }

@@ -5,7 +5,7 @@ import {InvalidBodyError, InvalidQueryError} from "../error/errors";
 const validateBody = (schema: ZodSchema) =>
     (req: Request) => {
         try {
-            req.body = schema.parse(req.body)
+            req.body = schema.strict().parse(req.body)
         } catch (error: any) {
             throw new InvalidBodyError(JSON.stringify({...error.issues}))
         }

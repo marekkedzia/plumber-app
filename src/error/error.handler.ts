@@ -18,6 +18,7 @@ function errorHandler(
     } : new InternalError();
 
     const id = InternalStorage.getRequestId();
+    //@ts-ignore
     Logger.error(`Error in request ${id}: ${error === 'object' && error !== null ? JSON.stringify(error) : error.toString()}`);
 
     response.status(status).json({...res, id});

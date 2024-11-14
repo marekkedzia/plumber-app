@@ -1,6 +1,6 @@
 {
   "name": "@marekkedzia/plumber-app",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "main": "dist/index.js",
   "author": "Marek Kedzia",
   "license": "MIT",
